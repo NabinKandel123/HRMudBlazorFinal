@@ -1,0 +1,134 @@
+﻿@page "/employee/edit/{Id}"
+@using HRAppMudBlazorProject.Shared
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using System.ComponentModel.DataAnnotations
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h3>Edit Employee</h3>
+
+<EditForm Model="@employee" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="8">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Name" HelperText="Max. 8 characters"
+                                  @bind-Value="employee.Name" For="@(() => employee.Name)" />
+                    <MudTextField Label="Address" Class="mt-3"
+                                  @bind-Value="employee.Address" For="@(() => employee.Address)" />
+                    <MudTextField Label="Email" Class="mt-3"
+                                  @bind-Value="employee.Email" For="@(() => employee.Email)" />
+                    <MudTextField Label="Number" Class="mt-3"
+                                  @bind-Value="employee.ContactNumber" For="@(() => employee.ContactNumber)" />
+                    <br />
+                    <div class="form-group">
+                        <InputSelect @bind-Value="employee.Sex" Label="Sex" Class="form-control">
+                            @foreach (var gender in Enum.GetValues(typeof(Gender)))
+                            {
+                                <option value="@gender">@gender</option>
+                            }
+                        </InputSelect>
+                    </div>
+                    @*<MudDatePicker Label="Join Date" Editable="true" @bind-Date="employee.JoinDate" />*@
+
+                    @*<MudSelect @bind-Value="employee.DepartmentID" Label="Department" AnchorOrigin="Origin.BottomCenter">
+                        @foreach (var department in departments)
+                        {
+                        <MudSelectItem Value="@department.ID">@department.DeptName</MudSelectItem>
+                        }
+                        </MudSelect>
+                        <MudSelect @bind-Value="employee.DesignationID" Label="Designation" AnchorOrigin="Origin.BottomCenter">
+                        @foreach (var designation in designations)
+                        {
+                        <MudSelectItem Value="@designation.ID">@designation.DesignationName</MudSelectItem>
+                        }
+                        </MudSelect>*@
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="DepartmentID"> Department </label>
+                            <select @bind="@employee.DepartmentID" class="form-control">
+                                <option value="" selected>---SELECT--- </option>
+                                @foreach (var department in departments)
+                                {
+                                    <option value="@department.ID">@department.DeptName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="DesignationID"> Designation *</label>
+                            <select @bind="@employee.DesignationID" class="form-control">
+                                <option value="" selected>---SELECT---</option>
+                                @foreach (var designation in designations)
+                                {
+                                    <option value="@designation.ID">@designation.DesignationName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+
+                </MudCardContent>
+                @*<MudCardActions>*@
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Success" Class="ml-4 mb-4">Update</MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Class="ml-4 mb-4" OnClick="Cancel">Cancel</MudButton>
+                @*</MudCardActions>*@
+            </MudCard>
+        </MudItem>
+
+    </MudGrid>
+</EditForm>
+
+@code {
+    //DateTime? date = DateTime.Today;
+    [Parameter]
+    public string Id { get; set; }
+
+    Employee employee = new Employee();
+
+    private List<Department> departments = new();
+    private List<Designation> designations = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            employee = await Http.GetFromJsonAsync<Employee>("api/Employees/" + Id);
+            departments = await Http.GetFromJsonAsync<List<Department>>("api/Departments");
+            designations = await Http.GetFromJsonAsync<List<Designation>>("api/Designations");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+
+    protected async Task Save()
+    {
+        var response = await Http.PutAsJsonAsync("api/Employees/" + Id, @employee);
+
+        await JsRuntime.InvokeVoidAsync("alert", "Saved Successfully!");
+        NavigationManager.NavigateTo("employeedetails");
+
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("employeedetails");
+    }
+
+    private void OnValidSubmit(EditContext context)
+    {
+        //success = true;
+        StateHasChanged();
+    }
+
+
+
+}

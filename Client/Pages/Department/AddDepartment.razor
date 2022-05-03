@@ -1,0 +1,51 @@
+﻿@page "/department/add"
+@using HRAppMudBlazorProject.Shared
+@inject HttpClient _httpClient
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h3>Add Department</h3>
+
+<EditForm Model="@department">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="8">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Department Name"
+                                  @bind-Value="department.DeptName" For="@(() => department.DeptName)" />
+                </MudCardContent>
+                @*<MudCardActions>*@ 
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-4 mb-4" OnClick="Save">Save</MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Class="ml-4 mb-4" OnClick="Cancel">Cancel</MudButton>
+                @*</MudCardActions>*@
+            </MudCard>
+        </MudItem>
+
+    </MudGrid>
+</EditForm>
+
+@code {
+    Department department = new Department();
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("api/Departments", @department);
+        Department? Response = await response.Content.ReadFromJsonAsync<Department>();
+        if (Response?.ID > 0)
+        {
+            NavigationManager.NavigateTo("departmentdetails");
+        }
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("departmentdetails");
+    }
+
+}

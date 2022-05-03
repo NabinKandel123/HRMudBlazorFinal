@@ -1,0 +1,270 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\HRAppMudBlazorProject.Server.csproj": {}
+  },
+  "projects": {
+    "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj",
+        "projectName": "HRAppMudBlazorProject.Client",
+        "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj",
+        "packagesPath": "C:\\Users\\nabin.kandel\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nabin.kandel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
+                "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[6.0.4, 6.0.4]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\HRAppMudBlazorProject.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\HRAppMudBlazorProject.Server.csproj",
+        "projectName": "HRAppMudBlazorProject.Server",
+        "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\HRAppMudBlazorProject.Server.csproj",
+        "packagesPath": "C:\\Users\\nabin.kandel\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nabin.kandel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj": {
+                "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj"
+              },
+              "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
+                "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj",
+        "projectName": "HRAppMudBlazorProject.Shared",
+        "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj",
+        "packagesPath": "C:\\Users\\nabin.kandel\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nabin.kandel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

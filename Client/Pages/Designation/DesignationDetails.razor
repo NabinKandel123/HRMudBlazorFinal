@@ -1,0 +1,48 @@
+﻿@page "/designationdetails"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using HRAppMudBlazorProject.Shared
+@attribute [Authorize]
+@inject HttpClient Http
+
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>Designation</h1>
+<p><a class="btn btn-primary" href="/designation/add">Add</a></p>
+
+@if (designations == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+     <MudTable Items="@designations" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+        
+        <HeaderContent>
+            <MudTh>Designation Name</MudTh>
+            <MudTh>Action</MudTh>
+        </HeaderContent>
+
+        <RowTemplate>
+            <MudTd DataLabel="Designation Name">@context.DesignationName</MudTd>
+            <MudTd DataLabel="Action"> <a class="btn btn-secondary" href="/designation/edit/@context.ID">Edit</a> | <a class="btn btn-danger" href="/designation/delete/@context.ID">Delete</a></MudTd>
+        </RowTemplate>
+
+    </MudTable>
+}
+
+@code {
+    private List<Designation> designations = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            designations = await Http.GetFromJsonAsync<List<Designation>>("api/Designations");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+}

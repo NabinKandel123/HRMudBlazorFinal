@@ -1,0 +1,52 @@
+﻿@page "/departmentdetails"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using HRAppMudBlazorProject.Shared
+@attribute [Authorize]
+@inject HttpClient Http
+
+<PageTitle>Department</PageTitle>
+
+<h1>Department</h1>
+<p><a class="btn btn-primary" href="/department/add">Add</a></p>
+
+@if (departments == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <MudTable Items="@departments" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+
+        <HeaderContent>
+            <MudTh>Department Name</MudTh>
+            <MudTh>Action</MudTh>
+        </HeaderContent>
+
+        <RowTemplate>
+            <MudTd DataLabel="Name">@context.DeptName</MudTd>
+            <MudTd DataLabel="Action">
+                <a class="btn btn-secondary" href="/department/edit/@context.ID">Edit</a>
+                <a class="btn btn-danger" href="/department/delete/@context.ID">Delete</a>
+            </MudTd>
+            @*<MudIconButton Icon="@Icons.Material.Filled.Delete" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" />*@
+        </RowTemplate>
+
+    </MudTable>
+}
+
+@code {
+    private List<Department> departments = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            departments = await Http.GetFromJsonAsync<List<Department>>("api/Departments");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+}

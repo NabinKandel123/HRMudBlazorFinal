@@ -1,0 +1,112 @@
+﻿@page "/employeedetails"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using HRAppMudBlazorProject.Shared
+@using MudBlazor
+@inject IJSRuntime JsRuntime
+@inject NavigationManager NavigationManager
+@*@attribute [Authorize]*@
+@inject HttpClient Http
+
+<PageTitle>Employee</PageTitle>
+
+<h1>Employee</h1>
+
+<p><a class="btn btn-primary" href="employee/add">Add</a></p>
+
+@if (employees == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <MudTable Items="@employees" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Address</MudTh>
+            <MudTh>Email</MudTh>
+            <MudTh>Number</MudTh>
+            <MudTh>Gender</MudTh>
+            <MudTh>Department</MudTh>
+            <MudTh>Designation</MudTh>
+            <MudTh>Join Date</MudTh>
+            <MudTh>Action</MudTh>
+        </HeaderContent>
+
+        <RowTemplate>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Address">@context.Address</MudTd>
+            <MudTd DataLabel="Email">@context.Email</MudTd>
+            <MudTd DataLabel="Number">@context.ContactNumber</MudTd>
+            <MudTd DataLabel="Sex">@context.Sex</MudTd>
+            <MudTd DataLabel="DepartmentID">
+                @*@context.DepartmentID*@
+                <table>
+                    @foreach (var department in departments)
+                    {
+                    @if (@context.DepartmentID == @department.ID)
+                    {
+                    <tr>
+                    <td> @department.DeptName</td>
+                    </tr>
+                    }
+                    }
+                    </table>
+            </MudTd>
+
+            <MudTd DataLabel="DesignationID">
+                @*@context.DesignationID*@
+                <table>
+                    @foreach (var designation in designations)
+                    {
+                    @if (@context.DesignationID == @designation.ID)
+                    {
+                    <tr>
+                    <td> @designation.DesignationName</td>
+                    </tr>
+                    }
+                    }
+                    </table>
+            </MudTd>
+
+            <MudTd DataLabel="Join Date">@context.JoinDate</MudTd>
+            <MudTd DataLabel="Action"> <a class="btn btn-secondary" href="/employee/edit/@context.ID">Edit</a> | 
+            <a class="btn btn-danger">Delete</a>    
+            </MudTd>
+        </RowTemplate>
+
+    </MudTable>
+}
+
+@code {
+    private List<Employee> employees = new();
+    private List<Department> departments = new();
+    private List<Designation> designations = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            employees = await Http.GetFromJsonAsync<List<Employee>>("api/Employees");
+            departments = await Http.GetFromJsonAsync<List<Department>>("api/Departments");
+            designations = await Http.GetFromJsonAsync<List<Designation>>("api/Designations");
+
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+
+    protected async Task Delete(int Id)
+    {
+        var emp = employees.First(x => x.ID == Id);
+        if (await JsRuntime.InvokeAsync<bool>("confirm", $"Do you want to delete {emp.Name}'s Record?"))
+        {
+            await Http.DeleteAsync($"api/Employees/{Id}");
+            NavigationManager.NavigateTo("employeedetails");
+            await OnInitializedAsync();
+        }
+    }
+
+}
