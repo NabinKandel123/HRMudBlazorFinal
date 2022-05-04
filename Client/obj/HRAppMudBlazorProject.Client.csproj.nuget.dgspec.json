@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj": {}
+    "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Client\\HRAppMudBlazorProject.Client.csproj": {}
   },
   "projects": {
-    "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj": {
+    "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Client\\HRAppMudBlazorProject.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj",
+        "projectUniqueName": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Client\\HRAppMudBlazorProject.Client.csproj",
         "projectName": "HRAppMudBlazorProject.Client",
-        "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj",
+        "projectPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Client\\HRAppMudBlazorProject.Client.csproj",
         "packagesPath": "C:\\Users\\nabin.kandel\\.nuget\\packages\\",
-        "outputPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\obj\\",
+        "outputPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nabin.kandel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
-                "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj"
+              "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
+                "projectPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\HRAppMudBlazorProject.Shared.csproj"
               }
             }
           }
@@ -96,14 +96,14 @@
         }
       }
     },
-    "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
+    "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj",
+        "projectUniqueName": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\HRAppMudBlazorProject.Shared.csproj",
         "projectName": "HRAppMudBlazorProject.Shared",
-        "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj",
+        "projectPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\HRAppMudBlazorProject.Shared.csproj",
         "packagesPath": "C:\\Users\\nabin.kandel\\.nuget\\packages\\",
-        "outputPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\obj\\",
+        "outputPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nabin.kandel\\AppData\\Roaming\\NuGet\\NuGet.Config",

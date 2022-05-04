@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HRAppMudBlazorProject.Server.Data;
-using HRAppMudBlazorProject.Server.Models;
 using HRAppMudBlazorProject.Shared;
 
 namespace HRAppMudBlazorProject.Server.Controllers
@@ -24,10 +23,22 @@ namespace HRAppMudBlazorProject.Server.Controllers
         }
 
         // GET: api/Employees
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
         {
             return await _context.Employee.ToListAsync();
+        }
+
+
+        [HttpGet("/empdetails")]
+        public double[] Get()
+        {
+            var malecount = _context.Employee.Count(x=>x.Sex==Gender.Male);
+            var femalecount = _context.Employee.Count(x => x.Sex == Gender.Female);
+            var othercount = _context.Employee.Count(x => x.Sex == Gender.Others);
+            double[] data = {malecount, femalecount, othercount};
+            return data;
         }
 
         // GET: api/Employees/5

@@ -22,3 +22,15 @@ D:\.NET\HRAPPMudBlazorProject-master\Shared\obj\Debug\net6.0\HRAppMudBlazorProje
 D:\.NET\HRAPPMudBlazorProject-master\Shared\obj\Debug\net6.0\refint\HRAppMudBlazorProject.Shared.dll
 D:\.NET\HRAPPMudBlazorProject-master\Shared\obj\Debug\net6.0\HRAppMudBlazorProject.Shared.pdb
 D:\.NET\HRAPPMudBlazorProject-master\Shared\obj\Debug\net6.0\ref\HRAppMudBlazorProject.Shared.dll
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\bin\Debug\net6.0\HRAppMudBlazorProject.Shared.deps.json
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\bin\Debug\net6.0\HRAppMudBlazorProject.Shared.dll
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\bin\Debug\net6.0\HRAppMudBlazorProject.Shared.pdb
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\HRAppMudBlazorProject.Shared.csproj.AssemblyReference.cache
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\HRAppMudBlazorProject.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\HRAppMudBlazorProject.Shared.AssemblyInfoInputs.cache
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\HRAppMudBlazorProject.Shared.AssemblyInfo.cs
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\HRAppMudBlazorProject.Shared.csproj.CoreCompileInputs.cache
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\HRAppMudBlazorProject.Shared.dll
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\refint\HRAppMudBlazorProject.Shared.dll
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\HRAppMudBlazorProject.Shared.pdb
+D:\.NET\Nabin-NET\HR_Application_Final_Project\HRAPPMudBlazorProject\Shared\obj\Debug\net6.0\ref\HRAppMudBlazorProject.Shared.dll

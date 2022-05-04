@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hvm+gS63pzQ+BHRuvwDQuZBJZDx9/dwriIwlOaHbSO8o+z9JeUHDzB0ktmJnC4De+lbyiOOtZsueMuTTSRRNWw==",
+  "dgSpecHash": "BadGfM2hq9KZyH4E4VwL76IA0E1XKKGBmdV07NpTXXp0ig+Bachnj++Oe6wAGH4DfNWgPtZu1QuYm46ka1fs1Q==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj",
+  "projectFilePath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Client\\HRAppMudBlazorProject.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nabin.kandel\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.4\\microsoft.aspnetcore.authorization.6.0.4.nupkg.sha512",
     "C:\\Users\\nabin.kandel\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.4\\microsoft.aspnetcore.components.6.0.4.nupkg.sha512",

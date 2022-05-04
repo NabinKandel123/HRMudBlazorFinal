@@ -1,1 +1,100 @@
 ﻿@page "/"
+@using HRAppMudBlazorProject.Shared
+
+@inject IJSRuntime JsRuntime
+@inject HttpClient Http
+
+<MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="@arrows" ShowBullets="@bullets" AutoCycle="@autocycle" TData="object">
+    <MudCarouselItem Transition="transition" Color="@Color.Primary">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition" Color="@Color.Secondary">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Primary" Size="@Size.Large" />
+        </div>
+    </MudCarouselItem>
+</MudCarousel>
+@*<MudSelect @bind-Value="transition" Label="Transition" Class="ma-2">
+    <MudSelectItem Value="@Transition.Fade">Fade</MudSelectItem>
+    <MudSelectItem Value="@Transition.Slide">Slide</MudSelectItem>
+    <MudSelectItem Value="@Transition.None">None</MudSelectItem>
+</MudSelect>
+<MudSwitch @bind-Checked="@arrows" Color="Color.Primary">Show Arrows</MudSwitch>
+<MudSwitch @bind-Checked="@bullets" Color="Color.Primary">Show Bullets</MudSwitch>
+<MudSwitch @bind-Checked="@autocycle" Color="Color.Primary">Auto Cycle (Default: 5 secs)</MudSwitch>*@
+
+
+
+<MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
+    <MudGrid>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="@($"color:{Theme.Palette.SuccessLighten}; background:{Theme.Palette.Dark};")">
+                <MudText Typo="Typo.h6">Total Employees</MudText>
+                <MudText>@employee.Count</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="@($"color:{Theme.Palette.SuccessLighten}; background:{Theme.Palette.Dark};")">
+                <MudText Typo="Typo.h6">Total Departments</MudText>
+                <MudText>@department.Count</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="@($"color:{Theme.Palette.SuccessLighten}; background:{Theme.Palette.Dark};")">
+                <MudText Typo="Typo.h6">Total Designation</MudText>
+                <MudText>@designation.Count</MudText>
+            </MudPaper>
+        </MudItem>
+        @*<MudItem xs="12" sm="6">
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudPaper Elevation="2" Class="pa-4" Style="height: 150px;"></MudPaper>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudPaper Elevation="2" Class="pa-4" Style="height: 150px;"></MudPaper>
+                </MudItem>
+            </MudGrid>
+        </MudItem>*@
+        <MudItem xs="12" sm="6">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 100%">
+                <MudChart ChartType="ChartType.Donut" Width="300px" Height="300px" InputData="@data" InputLabels="@labels">
+                    <CustomGraphics>
+                        <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total Employee</text>
+                        <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
+                    </CustomGraphics>
+                </MudChart>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code
+{
+    private MudTheme Theme = new MudTheme();
+
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
+    public double[] data;
+    public string[] labels = { "Male", "Female", "Other" };
+    List<Department>? department = new();
+    List<Designation>? designation = new();
+    List<Employee>? employee = new();
+    protected override async Task OnInitializedAsync()
+    {
+        department = await Http.GetFromJsonAsync<List<Department>>("api/Departments");
+        designation = await Http.GetFromJsonAsync<List<Designation>>("api/Designations");
+        employee = await Http.GetFromJsonAsync<List<Employee>>("api/Employees");
+        data = await Http.GetFromJsonAsync<double[]>("empdetails");
+    }
+}
+

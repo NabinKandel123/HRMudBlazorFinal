@@ -1,0 +1,127 @@
+﻿@page "/employee/add"
+@using HRAppMudBlazorProject.Shared
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using System.ComponentModel.DataAnnotations
+@inject HttpClient _httpClient
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h3>Add Employee</h3>
+
+<EditForm Model="@employee" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="8">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Name" Class="mt-3" HelperText="Full Name"
+                                  @bind-Value="employee.Name" For="@(() => employee.Name)" />
+
+
+                    <MudTextField Label="Address" Class="mt-3" HelperText="Address"
+                                  @bind-Value="employee.Address" For="@(() => employee.Address)" />
+
+
+                    <MudTextField Label="Email" Class="mt-3" HelperText="Email"
+                                  @bind-Value="employee.Email" For="@(() => employee.Email)" />
+
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <InputSelect @bind-Value="employee.Sex" Label="Sex" Class="form-control">
+                            @foreach (var gender in Enum.GetValues(typeof(Gender)))
+                            {
+                                <option value="@gender">@gender</option>
+                            }
+                        </InputSelect>
+                    </div>
+
+                    <MudDatePicker Label="Join Date" Editable="true" @bind-Date="employee.JoinDate" />
+
+
+                    <MudTextField Label="Contact Number" Class="mt-3" HelperText="Mobile Number"
+                                  @bind-Value="employee.ContactNumber" For="@(() => employee.ContactNumber)" />
+
+                    <br />
+                    <br />
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="DepartmentID"> Department *</label>
+                            <select @bind="@employee.DepartmentID" class="form-control">
+                                <option value="" selected>---SELECT--- </option>
+                                @foreach (var department in departments)
+                                {
+                                    <option value="@department.ID">@department.DeptName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="DesignationID"> Designation *</label>
+                            <select @bind="@employee.DesignationID" class="form-control">
+                                <option value="" selected>---SELECT---</option>
+                                @foreach (var designation in designations)
+                                {
+                                    <option value="@designation.ID">@designation.DesignationName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+
+                </MudCardContent>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-4 mb-4">Add</MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Class="ml-4 mb-4" OnClick="Cancel">Cancel</MudButton>
+            </MudCard>
+        </MudItem>
+
+    </MudGrid>
+</EditForm>
+
+@code {
+    DateTime? date = DateTime.Today;
+    Employee employee = new Employee();
+
+    private List<Department> departments = new();
+    private List<Designation> designations = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            departments = await Http.GetFromJsonAsync<List<Department>>("api/Departments");
+            designations = await Http.GetFromJsonAsync<List<Designation>>("api/Designations");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+
+    protected async Task Save()
+    {
+        var response = await Http.PostAsJsonAsync("api/Employees", employee);
+        Employee? posResponse = await response.Content.ReadFromJsonAsync<Employee>();
+        if (posResponse?.ID > 0)
+
+            NavigationManager.NavigateTo("employeedetails");
+    }
+
+    public void Cancel()
+    {
+        NavigationManager.NavigateTo("employeedetails");
+    }
+
+    private void OnValidSubmit(EditContext context)
+    {
+        StateHasChanged();
+    }
+
+    }

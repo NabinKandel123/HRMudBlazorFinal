@@ -1,0 +1,48 @@
+﻿@page "/designation/edit/{Id}"
+@using HRAppMudBlazorProject.Shared
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
+<h2>Edit Designation</h2>
+
+<EditForm Model="@designation" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="8">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Designation Name"
+                                  @bind-Value="designation.DesignationName" For="@(() => designation.DesignationName)" />
+                </MudCardContent>
+                @*<MudCardActions>*@
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-4 mb-4">Save</MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Class="ml-4 mb-4" OnClick="Cancel">Cancel</MudButton>
+                @*</MudCardActions>*@
+            </MudCard>
+        </MudItem>
+
+    </MudGrid>
+</EditForm>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    Designation designation = new Designation();
+
+    protected override async Task OnInitializedAsync()
+    {
+        designation = await Http.GetFromJsonAsync<Designation>("api/designations/" + Id);
+    }
+
+    protected async Task Save()
+    {
+        var response = await Http.PutAsJsonAsync("api/designations/" + Id, @designation);
+        NavigationManager.NavigateTo("designationdetails");
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("designationdetails");
+    }
+}

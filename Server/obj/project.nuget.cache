@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jDkwLC+D6n4FG99Q6lVeWQ2u55233UqiVZuZajLcv7nJG2rY8iRXzrzAw8qz5W7iQJfjSYQwDNo7uHlxmgEzSA==",
+  "dgSpecHash": "Kqrk1EcZ3WNMDVEibk6VHTcfLdgQLjxUAxOsEGcIZlNYwPRrQg/9wGnNn5M5a3KzmOD88gYToDzv/Face1wc7A==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\HRAppMudBlazorProject.Server.csproj",
+  "projectFilePath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Server\\HRAppMudBlazorProject.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nabin.kandel\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\nabin.kandel\\.nuget\\packages\\duende.identityserver\\5.2.0\\duende.identityserver.5.2.0.nupkg.sha512",

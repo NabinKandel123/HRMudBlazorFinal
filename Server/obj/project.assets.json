@@ -11214,11 +11214,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\HRAppMudBlazorProject.Server.csproj",
+      "projectUniqueName": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Server\\HRAppMudBlazorProject.Server.csproj",
       "projectName": "HRAppMudBlazorProject.Server",
-      "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\HRAppMudBlazorProject.Server.csproj",
+      "projectPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Server\\HRAppMudBlazorProject.Server.csproj",
       "packagesPath": "C:\\Users\\nabin.kandel\\.nuget\\packages\\",
-      "outputPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Server\\obj\\",
+      "outputPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nabin.kandel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -11235,11 +11235,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj": {
-              "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Client\\HRAppMudBlazorProject.Client.csproj"
+            "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Client\\HRAppMudBlazorProject.Client.csproj": {
+              "projectPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Client\\HRAppMudBlazorProject.Client.csproj"
             },
-            "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
-              "projectPath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj"
+            "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\HRAppMudBlazorProject.Shared.csproj": {
+              "projectPath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\HRAppMudBlazorProject.Shared.csproj"
             }
           }
         }

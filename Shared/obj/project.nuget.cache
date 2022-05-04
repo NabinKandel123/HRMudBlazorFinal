@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uKexjWoXcPvBZYTmyWsc4o+/8JkqoTZJzXKDVcAyFAq1YQ2lOTsnZKMisUpV12IKPvKLjVQvZWQYM8FH86sq0g==",
+  "dgSpecHash": "SbGddAPyXvX9b4Oz4Sz9eXQnZtXkjDbQqWGgQcM1OxaK/+MHXyc8N8b7C7dGQr2P724lh9FjkpS8YwNwy8gGnQ==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\HRAPPMudBlazorProject-master\\Shared\\HRAppMudBlazorProject.Shared.csproj",
+  "projectFilePath": "D:\\.NET\\Nabin-NET\\HR_Application_Final_Project\\HRAPPMudBlazorProject\\Shared\\HRAppMudBlazorProject.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
